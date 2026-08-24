@@ -4,6 +4,7 @@ export interface ThemeColors {
   background: string;
   surface: string;
   surfaceElevated: string;
+  surfacePressed: string;
   text: string;
   textMuted: string;
   primary: string;

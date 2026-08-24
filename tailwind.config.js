@@ -7,7 +7,14 @@ module.exports = {
   ],
   presets: [require("nativewind/preset")],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "instrument-regular": ["InstrumentSans-Regular"],
+        "instrument-medium": ["InstrumentSans-Medium"],
+        "instrument-semibold": ["InstrumentSans-SemiBold"],
+        "instrument-bold": ["InstrumentSans-Bold"],
+      },
+    },
   },
   plugins: [],
 };

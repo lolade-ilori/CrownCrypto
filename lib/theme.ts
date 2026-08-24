@@ -6,9 +6,10 @@ import {
 import { Theme } from "../types/theme";
 
 const lightColors = {
-  background: "#FFFFFF",
+  background: "#EEF1F6",
   surface: "#F7F9FC",
   surfaceElevated: "#FFFFFF",
+  surfacePressed: "#E1E6EE", // Darker than surface, for pressed feedback on light backgrounds
   text: "#0B1220",
   textMuted: "#5B6B82",
   primary: "#0B5FFF",
@@ -17,12 +18,15 @@ const lightColors = {
   success: "#0E9F6E",
   danger: "#E02424",
   warning: "#C27803",
+  overlay: "rgba(11, 18, 32, 0.45)",
+  shadow: "rgba(11, 18, 32, 0.08)",
 };
 
 const darkColors = {
   background: "#0A0E17",
   surface: "#121826", // Cards and panels, one step lighter than background
   surfaceElevated: "#1A2234",
+  surfacePressed: "#232C3D", // Lighter than surface, for pressed feedback on dark backgrounds
   text: "#F2F5FA",
   textMuted: "#8A97AC",
   primary: "#3B82F6",
@@ -31,6 +35,8 @@ const darkColors = {
   success: "#31C48D",
   danger: "#F05252",
   warning: "#E3A008",
+  overlay: "rgba(0, 0, 0, 0.6)",
+  shadow: "rgba(0, 0, 0, 0.4)",
 };
 
 // Resolved theme objects your own components consume via the useTheme hook.
