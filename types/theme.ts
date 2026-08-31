@@ -13,6 +13,8 @@ export interface ThemeColors {
   success: string;
   danger: string;
   warning: string;
+  overlay: string;
+  shadow: string;
 }
 
 export interface Theme {
