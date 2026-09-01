@@ -10,10 +10,11 @@ import {
   useWindowDimensions,
   View,
 } from "react-native";
-import AccountInfoCard from "../../../../components/ui/Account-Info-Card";
-import Card from "../../../../components/ui/Card";
+import Card from "../../../../components/cards/Card";
+import RecentActivityBox from "../../../../components/cards/RecentActivityBox";
+
+import AccountInfoCard from "../../../../components/accounts/Account-Info-Card";
 import Header from "../../../../components/ui/Header";
-import RecentActivityBox from "../../../../components/ui/RecentActivityBox";
 import { ThemedText } from "../../../../components/ui/ThemedText";
 import {
   SafeAreaThemedView,
@@ -52,7 +53,7 @@ export default function Wallet() {
           <View>
             {/* Header */}
             <View className="mb-5">
-              <Header />
+              <Header pageName="Wallet" />
             </View>
             <View className="flex-col gap-3">
               <ThemedText variant="section_title">My Balance</ThemedText>

@@ -42,3 +42,10 @@ export const formatRelativeDate = (isoDate: string): string => {
 
   return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 };
+
+export function formatPoints(points: number): string {
+  if (points >= 1000) {
+    return `${(points / 1000).toFixed(points % 1000 === 0 ? 0 : 1)}k`;
+  }
+  return String(points);
+}

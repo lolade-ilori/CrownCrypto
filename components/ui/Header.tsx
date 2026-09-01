@@ -3,12 +3,17 @@ import { Image, View } from "react-native";
 import { useTheme } from "../../hooks/use-theme";
 import { ThemedText } from "./ThemedText";
 
-export default function Header() {
+interface HeaderProps {
+  pageName: string;
+}
+
+export default function Header({ pageName }: HeaderProps) {
   const theme = useTheme();
+
   return (
     <View className="flex-row items-center justify-between">
       <Image className="w-18 h-18 rounded-full " />
-      <ThemedText>Wallet</ThemedText>
+      <ThemedText variant="section_title">{pageName}</ThemedText>
       <Ionicons
         name="notifications-outline"
         size={20}

@@ -54,16 +54,21 @@ export function SafeAreaThemedView({ style, ...rest }: SafeAreaViewProps) {
   );
 }
 
+interface TouchableOpacityInterface extends TouchableOpacityProps {
+  inverse?: boolean;
+}
+
 export function ThemedTouchableOpacity({
   style,
+  inverse,
   ...rest
-}: TouchableOpacityProps) {
+}: TouchableOpacityInterface) {
   const theme = useTheme();
   return (
     <TouchableOpacity
       style={[
         {
-          backgroundColor: theme.colors.surface,
+          backgroundColor: inverse ? theme.colors.text : theme.colors.surface,
           shadowColor: theme.colors.surfaceElevated,
         },
         style,

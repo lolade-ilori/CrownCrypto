@@ -2,8 +2,8 @@ import { View } from "react-native";
 import { useTheme } from "../../hooks/use-theme";
 import { formatCurrency, formatRelativeDate } from "../../lib/format";
 import { Transaction } from "../../types/transaction";
-import { ThemedText } from "./ThemedText";
-import { ThemedPressable } from "./ThemedView";
+import { ThemedText } from "../ui/ThemedText";
+import { ThemedPressable } from "../ui/ThemedView";
 
 interface TransactionType {
   transaction: Transaction;

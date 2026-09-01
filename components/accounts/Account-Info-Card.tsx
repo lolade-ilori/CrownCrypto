@@ -3,8 +3,8 @@ import { View } from "react-native";
 import { formatCurrency } from "../../lib/format";
 import { cardShadow } from "../../lib/shadow";
 import { Account } from "../../types/accounts";
-import { ThemedText } from "./ThemedText";
-import { ThemedTouchableOpacity } from "./ThemedView";
+import { ThemedText } from "../ui/ThemedText";
+import { ThemedTouchableOpacity } from "../ui/ThemedView";
 
 interface Properties {
   pillItems: Account;
