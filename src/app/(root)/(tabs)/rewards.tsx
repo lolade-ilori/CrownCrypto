@@ -21,7 +21,7 @@ export default function Rewards() {
       <SafeAreaView className="flex-1">
         <ScrollView
           className="flex-1"
-          contentContainerClassName="px-6 pb-8 gap-4"
+          contentContainerClassName="px-5 pb-8 gap-4"
         >
           <Header pageName="Rewards" />
           <RewardsProgressCard />

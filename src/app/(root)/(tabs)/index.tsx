@@ -10,9 +10,9 @@ import {
   useWindowDimensions,
   View,
 } from "react-native";
-import Card from "../../../../components/cards/Card";
 import RecentActivityBox from "../../../../components/cards/RecentActivityBox";
 
+import PaymentCard from "@/components/cards/PaymentCard";
 import AccountInfoCard from "../../../../components/accounts/Account-Info-Card";
 import Header from "../../../../components/ui/Header";
 import { ThemedText } from "../../../../components/ui/ThemedText";
@@ -35,7 +35,7 @@ export default function Wallet() {
   const pageWidth = windowWidth - 38;
   // renderItem wraps Card in px-3 (12px each side)
   // const cardWidth = pageWidth - 24;
-  const CARD_WIDTH = SCREEN_WIDTH * 0.85;
+  const CARD_WIDTH = SCREEN_WIDTH * 0.92;
 
   const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const index = Math.round(e.nativeEvent.contentOffset.x / pageWidth);
@@ -43,7 +43,7 @@ export default function Wallet() {
   };
 
   return (
-    <SafeAreaThemedView className="flex-1  bg-gray-50 px-6">
+    <SafeAreaThemedView className="flex-1  bg-gray-50">
       <FlatList
         data={ACCOUNTS}
         keyExtractor={(item) => item.id}
@@ -52,40 +52,47 @@ export default function Wallet() {
         ListHeaderComponent={
           <View>
             {/* Header */}
-            <View className="mb-5">
+            <View className="mb-5 px-5">
               <Header pageName="Wallet" />
             </View>
-            <View className="flex-col gap-3">
+            <View className="flex-col gap-3 px-5">
               <ThemedText variant="section_title">My Balance</ThemedText>
               <ThemedText variant="title">$27,120.45</ThemedText>
             </View>
 
             {/* Card */}
-            <View className="relative mb-8">
-              <View className="mb-4">
-                {isLoading ? (
-                  <ActivityIndicator
-                    size="small"
-                    color="#2563EB"
-                    className="py-10"
-                  />
-                ) : (
-                  <FlatList
-                    data={PAYMENT_CARDS}
-                    keyExtractor={(item) => item.id}
-                    pagingEnabled
-                    showsHorizontalScrollIndicator={false}
-                    onScroll={onScroll}
-                    scrollEventThrottle={16}
-                    horizontal
-                    renderItem={({ item }) => (
-                      <View className="" style={{ width: pageWidth }}>
-                        <Card width={pageWidth - 16} cardItems={item} />
-                      </View>
-                    )}
-                  />
-                )}
-              </View>
+            <View className="relative">
+              {isLoading ? (
+                <ActivityIndicator
+                  size="small"
+                  color="#2563EB"
+                  className="py-10"
+                />
+              ) : (
+                <FlatList
+                  data={PAYMENT_CARDS}
+                  keyExtractor={(item) => item.id}
+                  pagingEnabled
+                  showsHorizontalScrollIndicator={false}
+                  contentContainerStyle={{
+                    paddingHorizontal: 20,
+                    paddingVertical: 20,
+                  }}
+                  onScroll={onScroll}
+                  scrollEventThrottle={16}
+                  decelerationRate="fast"
+                  snapToAlignment="center"
+                  snapToInterval={pageWidth}
+                  ItemSeparatorComponent={() => <View style={{ width: 16 }} />}
+                  horizontal
+                  renderItem={({ item }) => (
+                    <View className="">
+                      {/* <Card width={CARD_WIDTH} cardItems={item} /> */}
+                      <PaymentCard />
+                    </View>
+                  )}
+                />
+              )}
 
               {/* Dot indicators */}
               {PAYMENT_CARDS.length > 1 && (
@@ -103,19 +110,19 @@ export default function Wallet() {
             </View>
 
             {/* Accounts Header */}
-            <View className="flex-row items-center gap-1">
+            <View className="flex-row items-center gap-1 px-5 mt-2">
               <ThemedText variant="section_title">Accounts</ThemedText>
               <Ionicons name="chevron-forward-sharp" size={16} color="black" />
             </View>
           </View>
         }
         renderItem={({ item }) => (
-          <View className="w-full">
+          <View className="w-full px-5">
             <AccountInfoCard pillItems={item} />
           </View>
         )}
         ListFooterComponent={
-          <View className="mt-8">
+          <View className="mt-8 px-5">
             <View className="flex-row items-center gap-1">
               <ThemedText variant="section_title">Recent activity</ThemedText>
             </View>

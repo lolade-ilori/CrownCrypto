@@ -1,10 +1,10 @@
-import { ThemedText } from "../../../../components/ui/ThemedText";
+import PaymentCard from "@/components/cards/PaymentCard";
 import { SafeAreaThemedView } from "../../../../components/ui/ThemedView";
 
 export default function Cards() {
   return (
-    <SafeAreaThemedView className="flex-1 justify-center items-center bg-gray-50">
-      <ThemedText variant="subtitle">Cards</ThemedText>
+    <SafeAreaThemedView className="flex-1 px-5">
+      <PaymentCard />
     </SafeAreaThemedView>
   );
 }
